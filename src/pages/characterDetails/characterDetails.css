@@ -24,6 +24,7 @@
     width: 500px;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 5px;
+    background-color: #fff;
 }
 
 .characterdetail-detail ul li {
@@ -32,10 +33,10 @@
 }
 
 .back-btn {
+    background-color: #fff;
     display: inline-block;
     padding: 5px 10px;
-    border: 2px solid #008987;
-    background-color: transparent;
+    border: 2px solid var(--main-color);
     color: #111;
     border-radius: 5px;
     cursor: pointer;
@@ -44,7 +45,7 @@
 }
 
 .back-btn:hover {
-    background-color: #008987;
+    background-color: var(--main-color);
     color: #fff;
 }
 

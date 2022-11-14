@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: #fff;
 }
 
 .character-details {
@@ -24,7 +25,7 @@
 
 .character-btn {
     padding: 5px 10px;
-    border: 2px solid #008987;
+    border: 2px solid var(--main-color);
     background-color: transparent;
     color: #111;
     border-radius: 5px;
@@ -36,6 +37,6 @@
 }
 
 .character-btn:hover {
-    background-color: #008987;
+    background-color: var(--main-color);
     color: #fff;
 }
