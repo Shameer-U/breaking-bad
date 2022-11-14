@@ -6,19 +6,19 @@ const CharacterItem = (props) => {
 
     return (
         <div className="character-item">
-            <div className="character-body">
-                <div className="character-details">
-                    <div> 
-                        {character?.name}
-                    </div>
-                </div>
+            <div className='character-img'>
+                 <img src={character?.img} />
+            </div>
+            <div className="character-details">
                 <div>
-                    <Link
-                        to={`character/${character.char_id}`}
-                    >
-                        <span className='character-btn'>View Details</span>
-                    </Link>
+                    {character?.name}
                 </div>
+
+                <Link
+                    to={`character/${character?.char_id}`}
+                >
+                    <span className='character-btn'>View Details</span>
+                </Link>
             </div>
         </div>
     );

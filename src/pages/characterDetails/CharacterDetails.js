@@ -28,11 +28,8 @@ const CharacterDetails = () => {
 
         {status && (
             <div className="characterdetail-container">
-                <h3 className="characterdetail-header">
-                    
-                </h3>
-                <div className="characterdetail-body">
-                    <p className="characterdetail-text"></p>
+                <div className="characterdetail-img">
+                    <img src={characterDetails?.img} />
                 </div>
                 <div className="characterdetail-detail">
                     <ul>
@@ -47,11 +44,11 @@ const CharacterDetails = () => {
                             <strong>Nick name</strong> : {characterDetails?.nickname}
                         </li>
                         <li>
-                            <strong>Status</strong> :{characterDetails?.status}
+                            <strong>Status</strong> : {characterDetails?.status}
                             
                         </li>
                         <li>
-                            <strong>Portrayed</strong> :{characterDetails?.portrayed}
+                            <strong>Portrayed</strong> : {characterDetails?.portrayed}
                         </li>
                         <li>
                             <strong>occupation(s)</strong> : {" "}
