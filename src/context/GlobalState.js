@@ -1,11 +1,13 @@
 import { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
+import axios from 'axios';
 
 const initialState = {
    characters: [],
    search: false,
    status: false,
    fetching : false,
+   characterDetails: {}
 }
 
 export const GlobalContext = createContext(initialState);
@@ -54,7 +56,30 @@ export const GlobalProvider = ({ children }) => {
         console.log('searchCharacters-error', err);
         dispatch({type: 'FETCH_CHARACTERS', payload: {characters, search: true, status:false, fetching:false}});
     }
-}
+  }
+
+  const fetchCharacterDetails = (id) => {
+    dispatch({type: 'FETCH_CHARACTER_DETAILS', payload: {status:true, fetching:true}});
+
+    let details = {};
+
+    axios.get(`https://www.breakingbadapi.com/api/characters/${id}`)
+    .then(res => {
+      if (res?.data[0]) {
+        details =  res.data[0];
+      }
+      
+      dispatch({type: 'FETCH_CHARACTER_DETAILS', payload: {details, status:true, fetching:false}});
+    })
+    .catch(err => {
+      console.log('fetchCharacterDetails-error', err);
+      dispatch({type: 'FETCH_CHARACTER_DETAILS', payload: {details, status:false, fetching:false}});
+    });
+  }
+
+  const removeCharacterDetails = () => {
+    dispatch({type: 'REMOVE_CHARACTER_DETAILS', payload: {characterDetails:{}, status:false, fetching:false} });
+  }
 
   return (
     <GlobalContext.Provider value={
@@ -63,8 +88,11 @@ export const GlobalProvider = ({ children }) => {
                                         search: state.search,
                                         status: state.status,
                                         fetching: state.fetching,
+                                        characterDetails: state.characterDetails,
                                         fetchCharacters,
                                         searchCharacters,
+                                        fetchCharacterDetails,
+                                        removeCharacterDetails
                                     }
                                   }
     >
