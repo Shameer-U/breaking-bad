@@ -20,7 +20,7 @@ function Home() {
         <section className='home'>
           <div className='home-container'>
                 { (status && characters.length > 0)  ?  characters.map(item => (
-                            <CharacterItem key={item.char_id} character={item} />
+                            <CharacterItem key={item?.char_id} character={item} />
                         )) : (
                            !fetching && (
                               <div className='error'>
