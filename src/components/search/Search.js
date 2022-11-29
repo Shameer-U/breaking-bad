@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import { useState, useContext, useRef } from "react";
+import { useContext, useRef } from "react";
 import './search.css';
 import { GlobalContext } from '../../context/GlobalState';
 

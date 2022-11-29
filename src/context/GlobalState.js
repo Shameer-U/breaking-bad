@@ -37,6 +37,10 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  const removeCharacters = () => {
+    dispatch({type: 'REMOVE_CHARACTERS', payload: { characters: [], search: false, status:true, fetching:false}});
+  }
+
   const searchCharacters =  async (searchTerm) => {
     dispatch({type: 'FETCH_CHARACTERS', payload: {search: true, status:true, fetching:true}});
 
@@ -90,6 +94,7 @@ export const GlobalProvider = ({ children }) => {
                                         fetching: state.fetching,
                                         characterDetails: state.characterDetails,
                                         fetchCharacters,
+                                        removeCharacters,
                                         searchCharacters,
                                         fetchCharacterDetails,
                                         removeCharacterDetails

@@ -6,11 +6,14 @@ import Search from '../../components/search/Search';
 import Spinner from '../../components/spinner/Spinner';
 
 function Home() {
-  const { characters, status, fetching, fetchCharacters } = useContext(GlobalContext);
+  const { characters, status, fetching, fetchCharacters, removeCharacters } = useContext(GlobalContext);
   
   useEffect(() => {
     fetchCharacters();
     
+    return () => {
+      removeCharacters();
+    }
   }, []);
 
   return (
